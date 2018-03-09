@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +8,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
 
-  reagants: any; 
+  reagants: any;
+  private puritylevel:any;
+  private name:any;
+  private grade:any;
 
   constructor(
     private http: HttpClient) { }
@@ -26,6 +29,14 @@ export class HomeComponent implements OnInit {
       });//.sort( (a,b) => `${a.first_name}${a.last_name}` < `${b.first_name}${b.last_name}` ? - 1 : 1);
 
     });
+  }
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+  };
+  onAddReagant(){
+    this.http.post('/api/now/table/x_197846_team_nan_reagent',"{'name':'"+this.name+"','grade':'"+this.grade+"','puritylevel':'"+this.puritylevel+"'}", this.httpOptions ).toPromise().then(resp=>{
+      console.log(resp);
+    },error=>{console.log(error)});
   }
 
 }
