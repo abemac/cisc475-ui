@@ -1,0 +1,26 @@
+{
+  "snow": {
+    "instance": "dev17581.service-now.com",
+    "auth": "Basic YWRtaW46RmYyU1lyOW9ZTG5p",
+    "endpoint": "x_197846_global_index.do"
+  },
+  "application": {
+    "name": "UI",
+    "scope": "x_197846_global",
+    "sys_id": "a47387334f601300ed7dc4b18110c70b"
+  },
+  "files": {
+    "html": {
+      "index": "747347734f601300ed7dc4b18110c76f"
+    },
+    "js": {
+      "inline": "747347734f601300ed7dc4b18110c76b",
+      "polyfills": "307387734f601300ed7dc4b18110c70d",
+      "vendor": "7c73c7334f601300ed7dc4b18110c720",
+      "main": "bc738f334f601300ed7dc4b18110c781"
+    },
+    "css": {
+      "styles": "307387734f601300ed7dc4b18110c733"
+    }
+  }
+}
