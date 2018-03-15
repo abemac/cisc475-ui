@@ -1,41 +1,12 @@
-<div *ngIf="!reagants">Loading Reagant Data...</div>
-
-<div *ngIf="reagants">
-  <ngb-tabset>
-    <ngb-tab title="View">
-      <ng-template ngbTabContent>
-        <h1>View Reagents</h1>
-          <table class='table table-striped'>
-            <tr><th>Name</th><th>Grade</th><th>Purity Level</th><th>Created</th></tr>
-            <tr *ngFor="let reagant of reagants">
-              <td>{{ reagant.name }}</td>
-              <td>{{ reagant.grade }}</td>
-              <td>{{ reagant.puritylevel }}</td>
-              <td>{{ reagant.sys_created_on | date: 'mediumDate'}}</td>
-            </tr>
-          </table>
-      </ng-template>
-    </ngb-tab>
-    <ngb-tab>
-      <ng-template ngbTabTitle>Add</ng-template>
-      <ng-template ngbTabContent>
-          <h1>Add Reagent</h1>
-            <div class="form-group">
-              <label for="name">Name:</label>
-              <input type="text" class="form-control" id="name" [(ngModel)]="name">
-              <label for="grade">Grade:</label>
-              <input type="text" class="form-control" id="grade" [(ngModel)]="grade">
-              <label for="purity">Purity Level:</label>
-              <input type="text" class="form-control" id="purity" [(ngModel)]="puritylevel">
-              <button class="btn btn-primary" (click)="onAddReagant()">Add</button>
-            </div>
-      </ng-template>
-    </ngb-tab>
-    <!-- <ngb-tab>
-        <ng-template ngbTabTitle>Test</ng-template>
-        <ng-template ngbTabContent>
-            <app-not-found></app-not-found>
-        </ng-template>
-    </ngb-tab> -->
-  </ngb-tabset>
-</div> 
+<ngb-tabset [destroyOnHide]="false">
+  <ngb-tab title="View">
+    <ng-template ngbTabContent>
+      <app-view></app-view>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab title="Add">
+    <ng-template ngbTabContent>
+        <app-add></app-add>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>

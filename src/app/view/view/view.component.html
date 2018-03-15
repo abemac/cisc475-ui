@@ -1,0 +1,18 @@
+<div class="viewwrapper">
+<h1>View Reagents</h1>
+<div *ngIf="!reagants">
+  <br>
+  <p>Loading Reagent Data...</p>
+</div>
+<div *ngIf="reagants">
+  <table class='table table-striped'>
+    <tr><th>Name</th><th>Grade</th><th>Purity Level</th><th>Created</th></tr>
+    <tr *ngFor="let reagant of reagants">
+      <td>{{ reagant.name }}</td>
+      <td>{{ reagant.grade }}</td>
+      <td>{{ reagant.puritylevel }}</td>
+      <td>{{ reagant.sys_created_on | date: 'mediumDate'}}</td>
+    </tr>
+  </table>
+</div>
+</div>

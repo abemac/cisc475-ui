@@ -7,11 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   branding = 'Reagant Management';
+  loggedIn=false;
 
   constructor(
   ) { }
 
   ngOnInit() {
     document.title = this.branding;
+  }
+  onLogin(){
+    this.loggedIn=true;
   }
 }
