@@ -18,8 +18,7 @@ export class ViewComponent implements OnInit {
       this.reagants = res.result.map( reagant => {
         reagant.sys_created_on = new Date(reagant.sys_created_on);
         return reagant;
-      });//.sort( (a,b) => `${a.first_name}${a.last_name}` < `${b.first_name}${b.last_name}` ? - 1 : 1);
-
+      });
     });
   }
 

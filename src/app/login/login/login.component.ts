@@ -17,8 +17,15 @@ export class LoginComponent implements OnInit {
     
   }
   onLoginClick(){
+    this.http.get<any>('/api/now/table/x_197846_global_token').subscribe( res => {
+      var users = res.result.map( user => {
+        return user;
+      });
+      console.log(users)
+      this.loggedIn.emit("loggedin")
+
+    });
     
-    this.loggedIn.emit("loggedin")
   }
 
 }
