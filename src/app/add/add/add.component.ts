@@ -7,9 +7,9 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
   styleUrls: ['./add.component.css']
 })
 export class AddComponent implements OnInit {
-  private puritylevel:any;
-  private name:any;
-  private grade:any;
+  puritylevel:any;
+  name:any;
+  grade:any;
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
