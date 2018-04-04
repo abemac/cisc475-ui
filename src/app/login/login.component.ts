@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
             break;
           }
         }
-       
+        
         if(!valid){
           console.log("Incorrect Login")
           this.loggingin=false;

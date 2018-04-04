@@ -1,0 +1,35 @@
+<div class="viewwrapper">
+  <div class="topbar">
+    <div class="left">
+        <h1>View Reagents</h1>
+    </div>
+    <div class="right">
+        <div class="addbtn">
+            <button type="button" class="btn btn-primary">Add Reagent</button>
+        </div>
+    </div>
+  </div>
+
+
+<div *ngIf="!reagants">
+  <br>
+  <p>Loading Reagent Data...</p>
+</div>
+<div *ngIf="reagants">
+  <table class='table table-striped'>
+    <tr><th>Name</th><th>Grade</th><th>Purity Level</th><th>Created</th><th style="width:159px">Actions</th></tr>
+    <tr *ngFor="let reagant of reagants">
+      <td>{{ reagant.name }}</td>
+      <td>{{ reagant.grade }}</td>
+      <td>{{ reagant.puritylevel }}</td>
+      <td>{{ reagant.sys_created_on | date: 'mediumDate'}}</td>
+      <td class="text-align:center">
+        <span style="cursor:pointer"><i class="fa fa-edit"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="cursor:pointer" (click)="delete(reagant.sys_id)"><i class="fa fa-times" style="color:red"></i></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <i *ngIf="deleting.has(reagant.sys_id)" class="fa fa-circle-notch fa-spin"></i>
+      </td>
+    </tr>
+  </table>
+</div>
+</div>

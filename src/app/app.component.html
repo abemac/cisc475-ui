@@ -1,5 +1,7 @@
 <div class="title">
     <h1>{{branding}}</h1>
 </div>
-<app-home *ngIf="loggedIn"></app-home>
-<app-login (loggedIn)="onLogin()" *ngIf="!loggedIn"></app-login>
+<app-home></app-home>
+    
+<!-- <app-home *ngIf="loggedIn"></app-home>
+<app-login (loggedIn)="onLogin()" *ngIf="!loggedIn"></app-login> -->

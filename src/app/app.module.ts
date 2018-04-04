@@ -12,11 +12,9 @@ import { AppComponent } from './app.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { ViewComponent } from './view/view/view.component';
-import { AddComponent } from './add/add/add.component';
-import { LoginComponent } from './login/login/login.component';
-import { UpdateComponent } from './update/update/update.component';
-import { DeleteComponent } from './delete/delete/delete.component';
+import { ReagantsComponent } from './reagants/reagants.component';
+import { AddComponent } from './add/add.component';
+import { LoginComponent } from './login/login.component';
 
 // const appRoutes: Routes = [
 //   { path: '', component: HomeComponent },
@@ -31,11 +29,9 @@ import { DeleteComponent } from './delete/delete/delete.component';
     AppComponent,
     NotFoundComponent,
     HomeComponent,
-    ViewComponent,
+    ReagantsComponent,
     AddComponent,
-    LoginComponent,
-    UpdateComponent,
-    DeleteComponent
+    LoginComponent
   ],
   imports: [
     // RouterModule.forRoot(appRoutes, { useHash: true }),
