@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import {AddComponent} from '../add/add.component'
+import {EditComponent} from '../edit/edit.component'
 @Component({
   selector: 'app-reagants',
   templateUrl: './reagants.component.html',
@@ -33,7 +34,7 @@ export class ReagantsComponent implements OnInit {
     })
   }
   edit(id){
-    console.log(id)
+    const modalRef = this.modalService.open(EditComponent);
   }
 
   add(){
