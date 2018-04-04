@@ -15,7 +15,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ReagantsComponent } from './reagants/reagants.component';
 import { AddComponent } from './add/add.component';
 import { LoginComponent } from './login/login.component';
-
 // const appRoutes: Routes = [
 //   { path: '', component: HomeComponent },
 //   { path: '404', component: NotFoundComponent },
@@ -40,6 +39,7 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule,
     NgbModule.forRoot()
   ],
+  entryComponents: [AddComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: SnowInterceptor, multi: true },
     { provide: APP_BASE_HREF, useValue: '/' }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {AddComponent} from '../add/add.component'
 @Component({
   selector: 'app-reagants',
   templateUrl: './reagants.component.html',
@@ -10,7 +11,7 @@ export class ReagantsComponent implements OnInit {
 
   reagants: any;
   deleting: Map<number,boolean> = new Map<number,boolean>();
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private modalService: NgbModal) { }
   
 
   ngOnInit() {
@@ -31,5 +32,11 @@ export class ReagantsComponent implements OnInit {
       this.updateTable();
     })
   }
+  edit(id){
+    console.log(id)
+  }
 
+  add(){
+    const modalRef = this.modalService.open(AddComponent);
+  }
 }
