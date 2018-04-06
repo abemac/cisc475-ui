@@ -7,6 +7,18 @@
   <input type="text" class="form-control" id="grade" [(ngModel)]="grade">
   <label for="purity">Purity Level:</label>
   <input type="text" class="form-control" id="purity" [(ngModel)]="puritylevel">
-  <button class="btn btn-primary" (click)="onAddReagant()">Add</button>
+  <button class="btn btn-primary" (click)="close()">Close</button>
+  <button *ngIf="!success" class="btn btn-primary" (click)="onAddReagant()">Add</button>
+  
+  <span *ngIf="adding">
+    <i class="fa fa-spinner fa-spin" ></i>
+  </span>
+  <span *ngIf="success">
+    <i class="fa fa-check" style="color:green"></i>
+  </span>
+  <span *ngIf="error">
+    <i class="fa fa-times" style="color:red"></i>
+  </span>
+  
 </div>
 </div>

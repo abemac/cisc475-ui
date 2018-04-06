@@ -4,9 +4,15 @@
         <h1>View Reagents</h1>
     </div>
     <div class="right">
-        <div class="addbtn">
+      <span *ngIf="refreshing">
+        <i class="fa fa-spinner fa-spin"></i>
+      </span>
+        <span class="refreshbtn">
+            <button type="button" class="btn btn-primary" (click)="refresh()">Refresh</button>
+        </span>
+        <span class="addbtn">
             <button type="button" class="btn btn-primary" (click)="add()">Add Reagent</button>
-        </div>
+        </span>
     </div>
   </div>
 
@@ -24,7 +30,7 @@
       <td>{{ reagant.puritylevel }}</td>
       <td>{{ reagant.sys_created_on | date: 'mediumDate'}}</td>
       <td class="text-align:center">
-        <span style="cursor:pointer" (click)="edit(reagant.sys_id)"><i class="fa fa-edit"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="cursor:pointer" (click)="edit(reagant)"><i class="fa fa-edit"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;
         <span style="cursor:pointer" (click)="delete(reagant.sys_id)"><i class="fa fa-times" style="color:red"></i></span>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <i *ngIf="deleting.has(reagant.sys_id)" class="fa fa-circle-notch fa-spin"></i>

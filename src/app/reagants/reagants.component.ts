@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal,NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
 import {AddComponent} from '../add/add.component'
 import {EditComponent} from '../edit/edit.component'
 @Component({
@@ -12,6 +12,7 @@ export class ReagantsComponent implements OnInit {
 
   reagants: any;
   deleting: Map<number,boolean> = new Map<number,boolean>();
+  refreshing:boolean=false;
   constructor(private http: HttpClient,private modalService: NgbModal) { }
   
 
@@ -19,11 +20,13 @@ export class ReagantsComponent implements OnInit {
     this.updateTable()
   }
   updateTable(){
+    this.refreshing=true;
     this.http.get<any>('/api/now/table/x_197846_team_nan_reagent').subscribe( res => {
       this.reagants = res.result.map( reagant => {
         reagant.sys_created_on = new Date(reagant.sys_created_on);
         return reagant;
       });
+      this.refreshing=false;
     });
   }
   delete(id){
@@ -33,11 +36,25 @@ export class ReagantsComponent implements OnInit {
       this.updateTable();
     })
   }
-  edit(id){
-    const modalRef = this.modalService.open(EditComponent);
+  edit(reagant){
+    console.log(reagant)
+    const modalRef = this.modalService.open(EditComponent)
+    modalRef.componentInstance.name = reagant.name;
+    modalRef.componentInstance.puritylevel = reagant.puritylevel;
+    modalRef.componentInstance.grade = reagant.grade;
+    modalRef.componentInstance.sysid = reagant.sys_id;
+    modalRef.result.then(()=>{
+      this.updateTable()
+    });
+   
   }
 
   add(){
-    const modalRef = this.modalService.open(AddComponent);
+    const modalRef = this.modalService.open(AddComponent).result.then(()=>{
+      this.updateTable()
+    })
+  }
+  refresh(){
+    this.updateTable()
   }
 }
