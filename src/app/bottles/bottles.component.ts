@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {NgbModal,NgbModalRef} from '@ng-bootstrap/ng-bootstrap';
-import {AddReagantComponent} from './add/add.component'
-import {EditReagantComponent} from './edit/edit.component'
+import {AddBottleComponent} from './add/add.component'
+import {EditBottleComponent} from './edit/edit.component'
 @Component({
-  selector: 'app-reagants',
-  templateUrl: './reagants.component.html',
-  styleUrls: ['./reagants.component.css']
+  selector: 'app-bottles',
+  templateUrl: './bottles.component.html',
+  styleUrls: ['./bottles.component.css']
 })
-export class ReagantsComponent implements OnInit {
+export class BottlesComponent implements OnInit {
 
   reagants : Array<any>;
   reagantsUnfiltered : Array<any>=new Array<any>();
@@ -42,7 +42,7 @@ export class ReagantsComponent implements OnInit {
   }
   edit(reagant){
     console.log(reagant)
-    const modalRef = this.modalService.open(EditReagantComponent)
+    const modalRef = this.modalService.open(EditBottleComponent)
     modalRef.componentInstance.name = reagant.name;
     modalRef.componentInstance.puritylevel = reagant.puritylevel;
     modalRef.componentInstance.grade = reagant.grade;
@@ -54,7 +54,7 @@ export class ReagantsComponent implements OnInit {
   }
 
   add(){
-    const modalRef = this.modalService.open(AddReagantComponent).result.then(()=>{
+    const modalRef = this.modalService.open(AddBottleComponent).result.then(()=>{
       this.updateTable()
     })
   }

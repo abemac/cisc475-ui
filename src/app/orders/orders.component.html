@@ -1,7 +1,7 @@
 <div class="viewwrapper">
   <div class="topbar">
     <div class="left">
-        <h1>View Reagents</h1>
+        <h1>View Orders</h1>
     </div>
     <div class="center">
         <input type="text" style="width:300px" [(ngModel)]="searchString" (input)="onSearchChange($event)"placeholder="Filter by Name" class="form-control"/>
@@ -14,7 +14,7 @@
             <button type="button" class="btn btn-primary" (click)="refresh()">Refresh</button>
         </span>
         <span class="addbtn">
-            <button type="button" class="btn btn-primary" (click)="add()">Add Reagent</button>
+            <button type="button" class="btn btn-primary" (click)="add()">Add Order</button>
         </span>
     </div>
   </div>
@@ -22,7 +22,7 @@
 
 <div *ngIf="!reagants">
   <br>
-  <p>Loading Reagent Data...</p>
+  <p>Loading Order Data...</p>
 </div>
 <div *ngIf="reagants">
   <table class='table table-striped'>

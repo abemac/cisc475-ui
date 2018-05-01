@@ -13,16 +13,14 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ReagantsComponent } from './reagants/reagants.component';
-import { AddComponent } from './add/add.component';
-import { LoginComponent } from './login/login.component';
-import { EditComponent } from './edit/edit.component';
-// const appRoutes: Routes = [
-//   { path: '', component: HomeComponent },
-//   { path: '404', component: NotFoundComponent },
-//   { path: '*', redirectTo: '404' },
-//   { path: '**', redirectTo: '404' }
-// ];
-
+import { OrdersComponent } from './orders/orders.component';
+import { BottlesComponent } from './bottles/bottles.component';
+import { AddReagantComponent } from './reagants/add/add.component';
+import { EditReagantComponent } from './reagants/edit/edit.component';
+import { AddBottleComponent } from './bottles/add/add.component';
+import { EditBottleComponent } from './bottles/edit/edit.component';
+import { AddOrderComponent } from './orders/add/add.component';
+import { EditOrderComponent } from './orders/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -30,9 +28,14 @@ import { EditComponent } from './edit/edit.component';
     NotFoundComponent,
     HomeComponent,
     ReagantsComponent,
-    AddComponent,
-    LoginComponent,
-    EditComponent
+    AddReagantComponent,
+    EditReagantComponent,
+    AddBottleComponent,
+    EditBottleComponent,
+    AddOrderComponent,
+    EditOrderComponent,
+    BottlesComponent,
+    OrdersComponent
   ],
   imports: [
     // RouterModule.forRoot(appRoutes, { useHash: true }),
@@ -41,7 +44,8 @@ import { EditComponent } from './edit/edit.component';
     HttpClientModule,
     NgbModule.forRoot()
   ],
-  entryComponents: [AddComponent,EditComponent],
+  entryComponents: [AddReagantComponent,EditReagantComponent,AddBottleComponent,EditBottleComponent,
+                        AddOrderComponent,EditOrderComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: SnowInterceptor, multi: true },
     { provide: APP_BASE_HREF, useValue: '/' }

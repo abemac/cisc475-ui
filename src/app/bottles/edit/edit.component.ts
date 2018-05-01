@@ -1,33 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 @Component({
-  selector: 'app-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.css']
+  selector: 'app-edit-bottle',
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.css']
 })
-export class AddComponent implements OnInit {
-  puritylevel:any;
-  name:any;
-  grade:any;
+export class EditBottleComponent implements OnInit {
+  @Input() name;
+  @Input() grade;
+  @Input() puritylevel;
+  @Input() sysid;
   adding:boolean=false;
   error:boolean=false;
   success:boolean=false;
-  constructor(private http: HttpClient,public activeModal: NgbActiveModal) { }
-
-  ngOnInit() {
-  }
-  
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json'})
   };
+  constructor(private http: HttpClient,public activeModal: NgbActiveModal) { }
+
+  ngOnInit() {
+    
+  }
   close(){
     this.activeModal.close()
     console.log("closed")
   }
-  onAddReagant(){
+  onEditReagant(){
     this.adding=true;
-    this.http.post('/api/now/table/x_197846_team_nan_reagent',"{'name':'"+this.name+"','grade':'"+this.grade+"','puritylevel':'"+this.puritylevel+"'}", this.httpOptions ).toPromise().then(resp=>{
+    this.http.patch('/api/now/table/x_197846_team_nan_reagent/'+this.sysid,"{'name':'"+this.name+"','grade':'"+this.grade+"','puritylevel':'"+this.puritylevel+"'}", this.httpOptions ).toPromise().then(resp=>{
       console.log(resp);
       this.adding=false;
       this.success=true;
@@ -39,4 +40,5 @@ export class AddComponent implements OnInit {
       this.error=true;
     });
   }
+
 }

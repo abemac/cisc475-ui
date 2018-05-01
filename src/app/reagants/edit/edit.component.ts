@@ -2,11 +2,11 @@ import { Component, OnInit,Input } from '@angular/core';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 @Component({
-  selector: 'app-edit',
+  selector: 'app-edit-reagants',
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.css']
 })
-export class EditComponent implements OnInit {
+export class EditReagantComponent implements OnInit {
   @Input() name;
   @Input() grade;
   @Input() puritylevel;
