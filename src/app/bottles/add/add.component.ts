@@ -27,7 +27,11 @@ export class AddBottleComponent implements OnInit {
   }
   onAddReagant(){
     this.adding=true;
-    this.http.post('/api/now/table/x_197846_team_nan_reagent',"{'name':'"+this.name+"','grade':'"+this.grade+"','puritylevel':'"+this.puritylevel+"'}", this.httpOptions ).toPromise().then(resp=>{
+    this.http.post('/api/now/table/x_197846_team_nan_reagentbottle',
+    "{'name':'"+this.name+
+    "','grade':'"+this.grade+
+    "','purity_level':'"+this.puritylevel+
+    "'}", this.httpOptions ).toPromise().then(resp=>{
       console.log(resp);
       this.adding=false;
       this.success=true;

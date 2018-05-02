@@ -20,23 +20,23 @@
   </div>
 
 
-<div *ngIf="!reagants">
+<div *ngIf="!data">
   <br>
   <p>Loading Order Data...</p>
 </div>
-<div *ngIf="reagants">
+<div *ngIf="data">
   <table class='table table-striped'>
     <tr><th>Name</th><th>Grade</th><th>Purity Level</th><th>Created</th><th style="width:159px">Actions</th></tr>
-    <tr *ngFor="let reagant of reagants">
-      <td>{{ reagant.name }}</td>
-      <td>{{ reagant.grade }}</td>
-      <td>{{ reagant.puritylevel }}</td>
-      <td>{{ reagant.sys_created_on | date: 'mediumDate'}}</td>
+    <tr *ngFor="let order of data">
+      <td>{{ order.name }}</td>
+      <td>{{ order.grade }}</td>
+      <td>{{ order.puritylevel }}</td>
+      <td>{{ order.sys_created_on | date: 'mediumDate'}}</td>
       <td class="text-align:center">
-        <span style="cursor:pointer" (click)="edit(reagant)"><i class="fa fa-edit"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;
-        <span style="cursor:pointer" (click)="delete(reagant.sys_id)"><i class="fa fa-times" style="color:red"></i></span>
+        <span style="cursor:pointer" (click)="edit(order)"><i class="fa fa-edit"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="cursor:pointer" (click)="delete(order.sys_id)"><i class="fa fa-times" style="color:red"></i></span>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <i *ngIf="deleting.has(reagant.sys_id)" class="fa fa-circle-notch fa-spin"></i>
+        <i *ngIf="deleting.has(order.sys_id)" class="fa fa-circle-notch fa-spin"></i>
       </td>
     </tr>
   </table>

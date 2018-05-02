@@ -10,8 +10,8 @@ import {EditBottleComponent} from './edit/edit.component'
 })
 export class BottlesComponent implements OnInit {
 
-  reagants : Array<any>;
-  reagantsUnfiltered : Array<any>=new Array<any>();
+  data : Array<any>;
+  dataUnfiltered : Array<any>=new Array<any>();
   deleting: Map<number,boolean> = new Map<number,boolean>();
   refreshing:boolean=false;
   constructor(private http: HttpClient,private modalService: NgbModal) { }
@@ -22,21 +22,21 @@ export class BottlesComponent implements OnInit {
   }
   updateTable(){
     this.refreshing=true;
-    this.http.get<any>('/api/now/table/x_197846_team_nan_reagent').subscribe( res => {
-      this.reagants = res.result.map( reagant => {
+    this.http.get<any>('/api/now/table/x_197846_team_nan_reagentbottle').subscribe( res => {
+      this.data = res.result.map( reagant => {
         reagant.sys_created_on = new Date(reagant.sys_created_on);
         return reagant;
       });
-      this.reagantsUnfiltered=new Array<any>(this.reagants)
+      this.dataUnfiltered=new Array<any>(this.data)
       console.log("here")
-      console.log(this.reagantsUnfiltered)
+      console.log(this.dataUnfiltered)
       this.refreshing=false;
     });
   }
   delete(id){
     this.deleting.set(id,true);
     console.log(id)
-    this.http.delete('/api/now/table/x_197846_team_nan_reagent/'+String(id)).subscribe(resp=>{
+    this.http.delete('/api/now/table/x_197846_team_nan_reagentbottle/'+String(id)).subscribe(resp=>{
       this.updateTable();
     })
   }
@@ -64,10 +64,10 @@ export class BottlesComponent implements OnInit {
 
   searchString:string;
   onSearchChange(event){
-    // console.log(this.reagantsUnfiltered[0].filter(r => String(r.name).startsWith(this.searchString)))
-    // console.log(this.reagants)
-    // console.log(this.reagantsUnfiltered)
-    this.reagants=this.reagantsUnfiltered[0].filter(r => String(r.name).toUpperCase().includes(this.searchString.toUpperCase()))
+    // console.log(this.dataUnfiltered[0].filter(r => String(r.name).startsWith(this.searchString)))
+    // console.log(this.data)
+    // console.log(this.dataUnfiltered)
+    this.data=this.dataUnfiltered[0].filter(r => String(r.name).toUpperCase().includes(this.searchString.toUpperCase()))
     
   }
 

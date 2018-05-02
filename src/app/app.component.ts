@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  branding = 'Reagant Management';
+  branding = 'LIMS Management System';
   loggedIn=false;
 
   constructor(
