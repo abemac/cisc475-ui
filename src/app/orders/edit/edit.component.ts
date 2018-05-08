@@ -7,9 +7,9 @@ import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./edit.component.css']
 })
 export class EditOrderComponent implements OnInit {
-  @Input() name;
-  @Input() grade;
-  @Input() puritylevel;
+  @Input() item;
+  @Input() amount;
+  @Input() requestor;
   @Input() sysid;
   adding:boolean=false;
   error:boolean=false;
@@ -28,7 +28,10 @@ export class EditOrderComponent implements OnInit {
   }
   onEditReagant(){
     this.adding=true;
-    this.http.patch('/api/now/table/x_197846_team_nan_reagent/'+this.sysid,"{'name':'"+this.name+"','grade':'"+this.grade+"','puritylevel':'"+this.puritylevel+"'}", this.httpOptions ).toPromise().then(resp=>{
+    this.http.patch('/api/now/table/x_197846_team_nan_purchaseorders/'+this.sysid,
+    "{'item':'"+this.item+
+    "','amount':'"+this.amount+
+    "','requestor':'"+this.requestor+"'}", this.httpOptions ).toPromise().then(resp=>{
       console.log(resp);
       this.adding=false;
       this.success=true;

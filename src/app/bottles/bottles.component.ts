@@ -44,7 +44,7 @@ export class BottlesComponent implements OnInit {
     console.log(reagant)
     const modalRef = this.modalService.open(EditBottleComponent)
     modalRef.componentInstance.name = reagant.name;
-    modalRef.componentInstance.puritylevel = reagant.puritylevel;
+    modalRef.componentInstance.puritylevel = reagant.purity_level;
     modalRef.componentInstance.grade = reagant.grade;
     modalRef.componentInstance.sysid = reagant.sys_id;
     modalRef.result.then(()=>{

@@ -1,12 +1,12 @@
 <div class="addwrapper">
 <h1>Add Order</h1>
 <div class="form-group">
-  <label for="name">Name:</label>
-  <input type="text" class="form-control" id="name" [(ngModel)]="name">
-  <label for="grade">Grade:</label>
-  <input type="text" class="form-control" id="grade" [(ngModel)]="grade">
-  <label for="purity">Purity Level:</label>
-  <input type="text" class="form-control" id="purity" [(ngModel)]="puritylevel">
+  <label for="name">Item:</label>
+  <input type="text" class="form-control" id="name" [(ngModel)]="item">
+  <label for="grade">Amount:</label>
+  <input type="text" class="form-control" id="grade" [(ngModel)]="amount">
+  <label for="purity">Requestor:</label>
+  <input type="text" class="form-control" id="purity" [(ngModel)]="requestor">
   <button class="btn btn-primary" (click)="close()">Close</button>
   <button *ngIf="!success" class="btn btn-primary" (click)="onAddReagant()">Add</button>
   

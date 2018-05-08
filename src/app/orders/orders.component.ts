@@ -22,7 +22,7 @@ export class OrdersComponent implements OnInit {
   }
   updateTable(){
     this.refreshing=true;
-    this.http.get<any>('/api/now/table/x_197846_team_nan_reagent').subscribe( res => {
+    this.http.get<any>('/api/now/table/x_197846_team_nan_purchaseorders').subscribe( res => {
       this.data = res.result.map( reagant => {
         reagant.sys_created_on = new Date(reagant.sys_created_on);
         return reagant;
@@ -36,16 +36,16 @@ export class OrdersComponent implements OnInit {
   delete(id){
     this.deleting.set(id,true);
     console.log(id)
-    this.http.delete('/api/now/table/x_197846_team_nan_reagent/'+String(id)).subscribe(resp=>{
+    this.http.delete('/api/now/table/x_197846_team_nan_purchaseorders/'+String(id)).subscribe(resp=>{
       this.updateTable();
     })
   }
   edit(reagant){
     console.log(reagant)
     const modalRef = this.modalService.open(EditOrderComponent)
-    modalRef.componentInstance.name = reagant.name;
-    modalRef.componentInstance.puritylevel = reagant.puritylevel;
-    modalRef.componentInstance.grade = reagant.grade;
+    modalRef.componentInstance.item = reagant.item;
+    modalRef.componentInstance.amount = reagant.amount;
+    modalRef.componentInstance.requestor = reagant.requestor;
     modalRef.componentInstance.sysid = reagant.sys_id;
     modalRef.result.then(()=>{
       this.updateTable()
@@ -67,7 +67,7 @@ export class OrdersComponent implements OnInit {
     // console.log(this.dataUnfiltered[0].filter(r => String(r.name).startsWith(this.searchString)))
     // console.log(this.data)
     // console.log(this.dataUnfiltered)
-    this.data=this.dataUnfiltered[0].filter(r => String(r.name).toUpperCase().includes(this.searchString.toUpperCase()))
+    this.data=this.dataUnfiltered[0].filter(r => String(r.item).toUpperCase().includes(this.searchString.toUpperCase()))
     
   }
 

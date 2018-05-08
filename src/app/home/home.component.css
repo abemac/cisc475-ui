@@ -1,0 +1,25 @@
+.homewrapper{
+    margin-top:20px;
+    text-align: center;
+    height: 100%;
+}
+
+.gridicons{
+    margin-top:100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 250px;
+}
+
+.griditem{
+    justify-content: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: top;
+    cursor:pointer;
+}
+.icon{
+    justify-content: center;
+    display: flex;
+    cursor:pointer;
+}

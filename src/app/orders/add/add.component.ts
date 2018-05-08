@@ -7,9 +7,9 @@ import {NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./add.component.css']
 })
 export class AddOrderComponent implements OnInit {
-  puritylevel:any;
-  name:any;
-  grade:any;
+  item:any;
+  requestor:any;
+  amount:any;
   adding:boolean=false;
   error:boolean=false;
   success:boolean=false;
@@ -27,7 +27,7 @@ export class AddOrderComponent implements OnInit {
   }
   onAddReagant(){
     this.adding=true;
-    this.http.post('/api/now/table/x_197846_team_nan_reagent',"{'name':'"+this.name+"','grade':'"+this.grade+"','puritylevel':'"+this.puritylevel+"'}", this.httpOptions ).toPromise().then(resp=>{
+    this.http.post('/api/now/table/x_197846_team_nan_purchaseorders',"{'item':'"+this.item+"','requestor':'"+this.requestor+"','amount':'"+this.amount+"'}", this.httpOptions ).toPromise().then(resp=>{
       console.log(resp);
       this.adding=false;
       this.success=true;

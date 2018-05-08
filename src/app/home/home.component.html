@@ -1,15 +1,54 @@
-<ngb-tabset [destroyOnHide]="false">
-  <ngb-tab title="Reagants">
+<ngb-tabset [destroyOnHide]="false" #t="ngbTabset">
+    <ngb-tab title="Home" id="home">
+        <ng-template ngbTabContent>
+          <div class="homewrapper">
+            <h3>Enter a Reagent, Test, Purchase Order, or something else!</h3>
+            <div class="gridicons">
+              <div class="griditem" (click)="t.select('reagants')">
+                <div class="icon">
+                    <i class="fa fa-flask" aria-hidden="true" style="font-size:48px"></i>
+                </div>
+                <br>
+                  
+                <h4>Reagants Portal</h4>
+              </div>
+              <div class="griditem" (click)="t.select('home')">
+                <div class="icon">
+                    <i class="fa fa-eye-dropper" style="font-size:48px"></i>
+                </div>
+                <br>
+                  
+                  <h4>Test Portal</h4>
+              </div>
+              <div class="griditem" (click)="t.select('bottles')">
+                <div class="icon">
+                    <i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:48px"></i>
+                </div>
+                <br>
+                  <h4>Inventory Portal</h4>
+              </div>
+              <div class="griditem" (click)="t.select('home')">
+                <div class="icon">
+                    <i class="fa fa-list-alt" aria-hidden="true" style="font-size:48px"></i>
+                </div>
+                <br>
+                  <h4>System Portal</h4>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+  <ngb-tab title="Reagants" id="reagants">
     <ng-template ngbTabContent>
       <app-reagants></app-reagants>
     </ng-template>
   </ngb-tab>
-  <ngb-tab title="Reagants Bottles">
+  <ngb-tab title="Reagants Bottles" id="bottles">
     <ng-template ngbTabContent>
       <app-bottles></app-bottles>
     </ng-template>
   </ngb-tab>
-  <ngb-tab title="Purchase Orders">
+  <ngb-tab title="Purchase Orders" id="orders">
     <ng-template ngbTabContent>
       <app-orders></app-orders>
     </ng-template>

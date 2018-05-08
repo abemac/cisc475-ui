@@ -28,7 +28,10 @@ export class EditBottleComponent implements OnInit {
   }
   onEditReagant(){
     this.adding=true;
-    this.http.patch('/api/now/table/x_197846_team_nan_reagent/'+this.sysid,"{'name':'"+this.name+"','grade':'"+this.grade+"','puritylevel':'"+this.puritylevel+"'}", this.httpOptions ).toPromise().then(resp=>{
+    this.http.patch('/api/now/table/x_197846_team_nan_reagentbottle/'+this.sysid,
+    "{'name':'"+this.name+
+    "','grade':'"+this.grade+
+    "','purity_level':'"+this.puritylevel+"'}", this.httpOptions ).toPromise().then(resp=>{
       console.log(resp);
       this.adding=false;
       this.success=true;
